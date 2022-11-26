@@ -18,6 +18,16 @@ describe('#Codegen 3-layer arch', () => {
         const result = Util.lowerCaseFirstLetter(data)
         expect(result).toStrictEqual(expected)
     })
-    test.todo('#upperCaseFirstLetter given a empty string it should return empty')
-    test.todo('#lowerCaseFirstLetter given a empty string it should return empty')
+    test('#upperCaseFirstLetter given a empty string it should return empty', () => {
+        const data = ''
+        const expected = ''
+        const result = Util.upperCaseFirstLetter(data)
+        expect(result).toStrictEqual(expected)
+    })
+    test('#lowerCaseFirstLetter given a empty string it should return empty', () => {
+        const data = ''
+        const expected = ''
+        const result = Util.lowerCaseFirstLetter(data)
+        expect(result).toStrictEqual(expected)
+    })
 })
