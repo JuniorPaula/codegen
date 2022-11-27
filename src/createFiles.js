@@ -5,8 +5,8 @@ import Util from './util.js'
 const defaultDEpendencies = (layer, componentName) => {
     const dependencies = {
         repository: [],
-        service: [`${componentName}/Repository`],
-        factory: [`${componentName}/Repository`, `${componentName}/Service`]
+        service: [`${componentName}Repository`],
+        factory: [`${componentName}Repository`, `${componentName}Service`]
     }
 
     return dependencies[layer].map(Util.lowerCaseFirstLetter)

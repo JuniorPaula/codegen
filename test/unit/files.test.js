@@ -13,6 +13,9 @@ describe('#Layers - Folder Structure', () => {
         componentName: 'heroes' 
     }
 
+    const repositoryLayer = `${config.componentName}Repository`
+    const serviceLayer = `${config.componentName}Service`
+
     beforeEach(() => {
         jest.restoreAllMocks()
         jest.clearAllMocks()
@@ -46,7 +49,22 @@ describe('#Layers - Folder Structure', () => {
         expect(templates.repositoryTemplate).toHaveBeenCalledWith(myConfig.componentName)
     })
 
-    test.todo('service should have repository as dependency')
+    test('service should have repository as dependency', async () => {
+        jest.spyOn(fsPromises, fsPromises.writeFile.name).mockResolvedValue()
+        jest.spyOn(templates, templates.serviceTemplate.name)
+            .mockReturnValue({ fileName: '', template: '' })
+
+        const myConfig = {
+            ...config,
+            layers: ['repository', 'service']
+        }
+        const expected = { success: true }
+        const result = await createFile(myConfig)
+        
+        expect(result).toStrictEqual(expected)
+        expect(fsPromises.writeFile).toHaveBeenCalledTimes(myConfig.layers.length)
+        expect(templates.serviceTemplate).toHaveBeenCalledWith(myConfig.componentName, repositoryLayer)
+    })
 
     test.todo('factory should have repository and service as dependency')
 
