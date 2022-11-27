@@ -8,7 +8,7 @@
     "codegen": "./src/index.js"
   },
   "scripts": {
-    "start": "NODE_ENV=dev node src/index.js",
+    "start": "NODE_ENV=dev node src/index.js skeleton -c product -c person -c account",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --passWithNoTests --no-cache --config ./jest.config.js",
     "test:cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --config ./jest.config.js --coverage"
   },
