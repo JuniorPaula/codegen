@@ -39,5 +39,5 @@ codegen skeleton -c product -c person -c account
 
 #### to remove the binary in your path
 ~~~javascript
-npm unlink codegen
+npm unlink -g codegen
 ~~~
